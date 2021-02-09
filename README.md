@@ -8,8 +8,6 @@ Looking for your Flex Chat Window render MMS media into your Flex Chat UI?
 
 Below, you can see the original documentation for this repository. There is also a detailed one in Portuguese, and sooner it will be translated to English as well.
 
-[Click here](docs/pt-br/README.md) to access the detailed documentation in Brazilian Portuguese.
-
 
 # Steps:
 
@@ -173,7 +171,7 @@ In the `plugin-sms-media` directory on this repo exists a Flex Plugin that allow
 
 ![send media buttons](screenshots/sendFileButton.png)
 
-Performing the deploy of this plugin into your Flex instance is quite simple: Go to the `flex-plugin` directory and install the project dependencies:
+Performing the deploy of this plugin into your Flex instance is quite simple: Go to the `plugin-sms-media` directory and install the project dependencies:
 
 ```zsh
 $ npm install
@@ -185,7 +183,7 @@ In case also check and fixes dependencies, after that, create a `.env.production
 REACT_APP_MMS_FUNCTIONS_DOMAIN=https://your_functions_domain
 ```
 
-After you have done that, copy the file `appConfig.example.js` inside the directory `flex-plugin/public` and create another one named `appConfig.js` in the same directory. Provide your **ACCOUNT_SID** to the `accountSid` variable:
+After you have done that, copy the file `appConfig.example.js` inside the directory `plugin-sms-media/public` and create another one named `appConfig.js` in the same directory. Provide your **ACCOUNT_SID** to the `accountSid` variable:
 
 ```javascript
 // your account sid
@@ -210,11 +208,7 @@ var appConfig = {
 };
 ```
 
-At last, run the `npm run deploy` command. I would recommend you to provide your accountSid and authToken when you run this command for the first time, as in the example below:
-
-```zsh
-TWILIO_ACCOUNT_SID=AC0000000 TWILIO_AUTH_TOKEN=00000000000 npm run deploy
-```
+At last, run the `twilio flex:plugins:deploy --changelog "Flex Plugins MMS API" --major` command and then release it either via twilio-cli or fromt he Flex UI Admin.
 
 Like that, if you have already made a deploy of a Flex Plugin to an account that is not the one that you are using now, you make sure that this deploy will be made to the account with the SID provided. You do not need to provide these variables in the next deploys since either this account will be used as the default one or the CLI will ask you to choose the account that you wish to deploy to.
 
@@ -274,7 +268,7 @@ In the Flex plugin, you can define the `REACT_APP_MMS_FUNCTIONS_DOMAIN` as `loca
 
 ### Running the Flex Plugin in your machine
 
-To test this plugin in a local Flex instance, you need to make sure that you are logged in into your [Twilio Account](https://www.twilio.com/login). After that, install the project dependencies inside the `flex-plugin` directory:
+To test this plugin in a local Flex instance, you need to make sure that you are logged in into your [Twilio Account](https://www.twilio.com/login). After that, install the project dependencies inside the `plugin-sms-media` directory:
 
 ```zsh
 $ npm install
