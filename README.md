@@ -165,7 +165,7 @@ We now need to configure the Proxy Callback URL to point to that Function.
 
 ## Deploying the Flex Plugin
 
-In the `flex-plugin` directory on this repo exists a Flex Plugin that allows the received media to be rendered properly and allows the agent to send files from their computer. You can see a demo below of this plugin:
+In the `plugin-sms-media` directory on this repo exists a Flex Plugin that allows the received media to be rendered properly and allows the agent to send files from their computer. You can see a demo below of this plugin:
 
 ![image thumbnail](screenshots/thumbnail.png)
 
@@ -176,10 +176,10 @@ In the `flex-plugin` directory on this repo exists a Flex Plugin that allows the
 Performing the deploy of this plugin into your Flex instance is quite simple: Go to the `flex-plugin` directory and install the project dependencies:
 
 ```zsh
-$ npm i
+$ npm install
 ```
 
-After that, create a `.env.production` file based on the `.env.example`, and provide the single variable with the functions' domain:
+In case also check and fixes dependencies, after that, create a `.env.production` file based on the `.env.example`, and provide the single variable with the functions' domain:
 
 ```javascript
 REACT_APP_MMS_FUNCTIONS_DOMAIN=https://your_functions_domain
@@ -286,9 +286,9 @@ Then, create a `.env` file based on the `.env.example` one, and provide the func
 REACT_APP_MMS_FUNCTIONS_DOMAIN=https://your_functions_domain
 ```
 
-> I would recommend you to have a `.env` file to test your plugin locally and a `.env.production` one to use when deploying it to your flex instance. When you run the `npm run deploy` command, the production env file is used instead of the `.env`.
+> I would recommend you to have a `.env` file to test your plugin locally and a `.env.production` one to use when deploying it to your flex instance. When you run the `twilio flex:plugins:deploy --changelog "Flex Plugins MMS API" --major` command, the production env file is used instead of the `.env`.
 
-After you have done that, copy the file `appConfig.example.js` inside the directory `flex-plugin/public` and create another one named `appConfig.js` in the same directory. Provide your **ACCOUNT_SID** to the `accountSid` variable:
+After you have done that, copy the file `appConfig.example.js` inside the directory `plugin-sms-media/public` and create another one named `appConfig.js` in the same directory. Provide your **ACCOUNT_SID** to the `accountSid` variable:
 
 ```javascript
 // your account sid
